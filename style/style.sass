@@ -9,14 +9,17 @@ body
     font-size: 16px
     background: rgb(242, 242, 242)
 
+a
+    text-decoration: none
+
 .container
     display: grid
     gap: 32px
     justify-content: space-between
     grid-template-columns: repeat(12, minmax(60px, 80px))
     width: 100%
-    // overflow: hidden
-    // position: relative
+    overflow: hidden
+    position: relative
 
 .content
     min-width: 1072px
@@ -57,6 +60,7 @@ body
 
 .menu-box
     position: fixed
+    display: flex
     background-image: url("../img/bg.png")
     background-size: cover
     width: 100%
@@ -64,12 +68,79 @@ body
     top: 0
     right: -100%
     transition: right 1s
+    &__close
+        position: absolute
+        top: 28px
+        right: 63px
 
 .menu
-    background: rgb(255, 255, 255)
-    min-width: 760px
-    display: flex
-    flex-direction: column
+    width: 760px
+    background-color: rgb(255, 255, 255)
+    margin-top: 8px
+    margin-bottom: 8px
+    margin-left: 8px
+    padding-bottom: 40px
+    box-sizing: border-box
+    overflow: scroll
+    overflow-x: hidden
+    scrollbar-width: thin
+    scrollbar-color: rgb(255, 58, 98) white
+    &__header
+        width: 100%
+        display: flex
+        gap: 64px
+        padding-top: 24px
+        padding-left: 56px
+        align-items: center
+        &_logo
+            width: 40px
+            height: 40px
+
+    &__info
+        width: 494px
+        padding-top: 36px
+        padding-bottom: 36px
+        padding-left: 160px
+        display: flex
+        flex-direction: column
+        gap: 24px
+        box-sizing: border-box
+
+        &_title
+            margin-top: 36px
+            color: rgb(27, 27, 27)
+            font-size: 2rem
+            font-weight: 700
+            line-height: calc(2rem + 8px)
+            text-align: left
+        &_desc
+            width: 384px
+            color: rgb(27, 27, 27)
+            font-size: 1rem
+            font-weight: 400
+            line-height: calc(1rem + 8px)
+            text-align: left
+        &_number-phone
+            margin-top: 8px
+            color: rgb(27, 27, 27)
+            font-size: 1.125rem
+            font-weight: 500
+            line-height: calc(1.125rem + 8px)
+            text-align: left
+        &_link
+            margin-top: 193px
+            color: rgb(62, 41, 227)
+            font-size: 1rem
+            font-weight: 500
+            line-height: calc(1rem + 8px)
+            text-align: left
+    &__footer
+        padding-left: 160px
+        display: flex
+        gap: 24px
+        &_link
+            width: 48px
+            height: 48px
 
 
 @media (min-width: 736px) and ( max-width: 1199px)
@@ -84,7 +155,6 @@ body
         grid-column: 1 / 9
 
 @media (min-width: 320px) and ( max-width: 735px)
-    .body
 
     .container
         gap: $gapStandart
