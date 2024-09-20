@@ -1,0 +1,11 @@
+<svg width="32.000000" height="10.000000" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs/>
+	<mask id="mask_0_116" fill="white">
+		<path id="ico_menu" d="M32 0L0 0L0 2L32 2L32 0ZM32 8L8 8L8 10L32 10L32 8Z" clip-rule="evenodd" fill="" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</mask>
+	<path id="ico_menu" d="M32 0L0 0L0 2L32 2L32 0ZM32 8L8 8L8 10L32 10L32 8Z" clip-rule="evenodd" fill="#1B1B1B" fill-opacity="1.000000" fill-rule="evenodd" mask="url(#mask_0_116)"/>
+	<path id="ico_menu" d="" fill="#979797" fill-opacity="0.000000" fill-rule="nonzero"/>
+</svg>
