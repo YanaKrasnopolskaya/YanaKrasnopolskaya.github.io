@@ -7,16 +7,51 @@
 body
     font-family: Graphik LCG, sans-serif
     font-size: 16px
+    background: rgb(242, 242, 242)
 
 .container
     display: grid
     gap: 32px
-    place-items: center
+    justify-content: space-between
     grid-template-columns: repeat(12, minmax(60px, 80px))
+    width: 100%
+    overflow: hidden
+    position: relative
 
 .content
     min-width: 1072px
     max-width: 1312px
+
+.header
+    grid-column: 1 / 13
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 32px 64px
+
+    &__left
+        width: 190px
+        display: flex
+        gap: $gapStandart
+        align-items: center
+        &_logo
+            height: 56px
+        &_name
+            color: rgb(125, 125, 125)
+            font-size: 0.875rem
+            font-weight: 400
+            line-height: calc(0.875rem + 8px)
+            text-align: left
+        &_name-surname
+            color: rgb(27, 27, 27)
+            font-size: 0.875rem
+            font-weight: 500
+            line-height: calc(0.875rem + 8px)
+            text-align: left
+
+#menu
+    position: absolute
+    left: -99999999px
 
 @media (min-width: 736px) and ( max-width: 1199px)
     .container
@@ -26,11 +61,21 @@ body
         min-width: 672px
         max-width: 928px
 
-@media (min-width: 736px) and ( max-width: 1199px)
+    .header
+        grid-column: 1 / 9
+
+@media (min-width: 320px) and ( max-width: 735px)
+    .body
+
     .container
-        gap: 24px
+        gap: $gapStandart
         grid-template-columns: repeat(4, minmax(56px, 88px))
 
     .content
         min-width: 296px
         max-width: 424px
+
+    .header
+        grid-column: 1 / 5
+        &__left_name
+            display: none
