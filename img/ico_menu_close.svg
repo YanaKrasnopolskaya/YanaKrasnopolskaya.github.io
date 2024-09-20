@@ -1,0 +1,11 @@
+<svg width="18.384766" height="18.384796" viewBox="0 0 18.3848 18.3848" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs/>
+	<mask id="mask_0_221" fill="white">
+		<path id="ico_menu_close" d="M10.6067 9.19238L18.3848 1.41422L16.9705 0L9.19238 7.77817L1.41431 0L0 1.41422L7.77808 9.19238L0 16.9706L1.41431 18.3848L9.19238 10.6066L16.9705 18.3848L18.3848 16.9706L10.6067 9.19238Z" clip-rule="evenodd" fill="" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</mask>
+	<path id="ico_menu_close" d="M10.6067 9.19238L18.3848 1.41422L16.9705 0L9.19238 7.77817L1.41431 0L0 1.41422L7.77808 9.19238L0 16.9706L1.41431 18.3848L9.19238 10.6066L16.9705 18.3848L18.3848 16.9706L10.6067 9.19238Z" clip-rule="evenodd" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" mask="url(#mask_0_221)"/>
+	<path id="ico_menu_close" d="" fill="#979797" fill-opacity="0.000000" fill-rule="nonzero"/>
+</svg>
