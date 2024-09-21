@@ -23,7 +23,7 @@ a {
   position: relative;
 }
 
-.content {
+.content-width {
   min-width: 1072px;
   max-width: 1312px;
 }
@@ -160,11 +160,65 @@ a {
   height: 48px;
 }
 
+.content {
+  grid-column: 5/13;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.content__title {
+  color: rgb(27, 27, 27);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: calc(2rem + 8px);
+  text-align: left;
+  margin-bottom: 24px;
+}
+.content__form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.content__form_heading {
+  color: rgb(27, 27, 27);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: calc(1.5rem + 8px);
+  text-align: left;
+  margin-bottom: 92px;
+}
+.content__form_input {
+  width: 280px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(174, 173, 174);
+  background-color: transparent;
+  color: rgb(27, 27, 27);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(1rem + 8px);
+  text-align: left;
+}
+.content__form_error-email {
+  color: rgb(232, 15, 59);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: calc(0.75rem + 8px);
+  text-align: left;
+}
+.content__form_error {
+  color: rgb(232, 15, 59);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: calc(0.875rem + 8px);
+  text-align: left;
+}
+
 @media (min-width: 736px) and (max-width: 1199px) {
   .container {
     grid-template-columns: repeat(8, minmax(56px, 88px));
   }
-  .content {
+  .content-width {
     min-width: 672px;
     max-width: 928px;
   }
@@ -177,7 +231,7 @@ a {
     gap: 24px;
     grid-template-columns: repeat(4, minmax(56px, 88px));
   }
-  .content {
+  .content-width {
     min-width: 296px;
     max-width: 424px;
   }
