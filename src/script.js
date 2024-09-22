@@ -1,8 +1,8 @@
 const menuInputEl = document.getElementById('menu');
 const menuBoxEl = document.querySelector('.menu-box');
 const menuCloseEl = document.querySelector('.menu-box__close');
-const formEmailEl = document.querySelector('.content__form');
-const inputEmailEl = document.querySelector('.content__form_input');
+const formEmailEl = document.querySelector('.ui__form');
+const inputEmailEl = document.querySelector('.ui__form_input');
 
 // menu press tracking
 menuInputEl.addEventListener('change', (e) => {
@@ -29,8 +29,8 @@ inputEmailEl.addEventListener('keydown', (e) => {
         if (!validateEmail(inputEmailEl.value) || !inputEmailEl.value) {
             e.target.blur();
 
-            const errorEmail = '<span class="content__form_error-email">E-mail</span>';
-            const errorMessage = '<span class="content__form_error">текст ошибки</span>';
+            const errorEmail = '<span class="ui__form_error-email">E-mail</span>';
+            const errorMessage = '<span class="ui__form_error">текст ошибки</span>';
 
             inputEmailEl.insertAdjacentHTML('beforebegin', errorEmail);
             inputEmailEl.insertAdjacentHTML('afterend', errorMessage);
@@ -39,6 +39,7 @@ inputEmailEl.addEventListener('keydown', (e) => {
             inputEmailEl.style.borderBottom = '4px solid rgb(232, 15, 59)';
             return false;
         } else {
+            e.preventDefault();
             formEmailEl.submit();
         }
     }
@@ -58,8 +59,8 @@ inputEmailEl.addEventListener('mouseout', (e) => {
 
 // tracking of new blocks for correct operation of the form
 const observer = new MutationObserver(() => {
-    const errorEl = document.querySelector('.content__form_error-email');
-    const errorMessageEl = document.querySelector('.content__form_error');
+    const errorEl = document.querySelector('.ui__form_error-email');
+    const errorMessageEl = document.querySelector('.ui__form_error');
 
     inputEmailEl.addEventListener('focus', (e) => {
         inputEmailEl.style.borderBottom = '4px solid rgb(62, 41, 227)';
