@@ -338,6 +338,12 @@ a {
   line-height: calc(1rem + 8px);
   text-align: left;
 }
+.ui__form_input:hover {
+  border-bottom: 2px solid rgb(62, 41, 227);
+}
+.ui__form_input:focus {
+  border-bottom: 4px solid rgb(62, 41, 227);
+}
 .ui__form_error-email {
   color: rgb(232, 15, 59);
   font-size: 0.75rem;
@@ -351,6 +357,116 @@ a {
   font-weight: 400;
   line-height: calc(0.875rem + 8px);
   text-align: left;
+}
+.ui__dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ui__dropdown_heading {
+  margin-top: 24px;
+  color: rgb(27, 27, 27);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: calc(1.5rem + 8px);
+  text-align: left;
+}
+.ui__dropdown_desc {
+  color: rgb(27, 27, 27);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(1rem + 8px);
+  letter-spacing: 0px;
+  text-align: left;
+}
+.ui__button-box_heading {
+  color: rgb(27, 27, 27);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: calc(1.5rem + 8px);
+  text-align: left;
+  margin-top: 24px;
+  margin-bottom: 76px;
+}
+.ui__button-box_buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 76px;
+}
+.ui__button-box_button {
+  width: 148px;
+  padding: 16px 28px;
+  border: none;
+  outline: none;
+  border-radius: 32px;
+  background: linear-gradient(45deg, rgb(221, 128, 237) 37.476%, rgb(61, 40, 227) 137.476%);
+  color: rgb(255, 255, 255);
+  transition: background 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: calc(1rem + 8px);
+  text-align: center;
+}
+.ui__button-box_button:hover {
+  background: linear-gradient(225deg, rgb(221, 128, 237) 37.476%, rgb(61, 40, 227) 137.476%);
+}
+.ui__button-box_button:active {
+  background: linear-gradient(206.57deg, rgb(221, 128, 237) 33.305%, rgb(61, 40, 227) 94.435%);
+}
+.ui__checkbox-radio {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.ui__checkbox-radio_heading {
+  color: rgb(27, 27, 27);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: calc(1.5rem + 8px);
+  text-align: left;
+}
+
+.filter {
+  width: 280px;
+}
+.filter__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  border-bottom: 2px solid rgb(174, 173, 174);
+}
+.filter__summary_name {
+  width: 255px;
+  color: rgb(27, 27, 27);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(1rem + 8px);
+  text-align: left;
+}
+.filter__items {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+.filter__items_item {
+  color: rgb(27, 27, 27);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(1rem + 8px);
+  text-align: left;
+  list-style-type: none;
+  padding: 16px 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.filter__items_item:hover {
+  background-color: rgb(62, 41, 227);
+  color: white;
+}
+.filter__items_item:active {
+  color: rgb(61, 40, 225);
+  background-color: white;
 }
 
 @media (min-width: 736px) and (max-width: 1199px) {

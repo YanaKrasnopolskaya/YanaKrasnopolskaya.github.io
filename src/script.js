@@ -17,6 +17,32 @@ menuCloseEl.addEventListener('click', (e) => {
     menuBoxEl.style.right = '-100%';
 });
 
+// change style functions
+function setHoverStyle(element) {
+    element.classList.add('hover');
+    element.classList.remove('active');
+    element.classList.remove('focus');
+}
+
+function resetNormalStyle(element) {
+    element.style.removeProperty('background');
+    element.classList.remove('hover');
+    element.classList.remove('active');
+    element.classList.remove('focus');
+}
+
+function setClickStyle(element) {
+    element.classList.add('active');
+    element.classList.remove('hover');
+    element.classList.remove('focus');
+}
+
+function setFocusStyle(element) {
+    element.classList.add('focus');
+    element.classList.remove('hover');
+    element.classList.remove('active');
+}
+
 // email validity check function
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,15 +72,15 @@ inputEmailEl.addEventListener('keydown', (e) => {
 });
 
 inputEmailEl.addEventListener('blur', (e) => {
-    inputEmailEl.style.borderBottom = '2px solid rgb(174, 173, 174)';
+    resetNormalStyle(e.target);
 });
 
 inputEmailEl.addEventListener('mouseover', (e) => {
-    inputEmailEl.style.borderBottom = '2px solid rgb(62, 41, 227)';
+    setHoverStyle(e.target);
 });
 
 inputEmailEl.addEventListener('mouseout', (e) => {
-    inputEmailEl.style.borderBottom = '2px solid rgb(174, 173, 174)';
+    resetNormalStyle(e.target);
 });
 
 // tracking of new blocks for correct operation of the form
@@ -63,7 +89,7 @@ const observer = new MutationObserver(() => {
     const errorMessageEl = document.querySelector('.ui__form_error');
 
     inputEmailEl.addEventListener('focus', (e) => {
-        inputEmailEl.style.borderBottom = '4px solid rgb(62, 41, 227)';
+        setFocusStyle(e.target);
         if (errorEl && errorMessageEl) {
             errorEl.remove();
             errorMessageEl.remove();
@@ -74,4 +100,42 @@ const observer = new MutationObserver(() => {
 observer.observe(document.body, {
     childList: true,
     subtree: true
+});
+
+const filterEl = document.querySelector('.filter');
+const filterItems = document.querySelectorAll('.filter__items_item');
+const summaryEl = document.querySelector('.filter__summary_name');
+const summaryImgEl = document.querySelector('.filter__summary_img');
+
+filterEl.addEventListener('toggle', (e) => {
+    if (filterEl.open) {
+        summaryImgEl.src = 'img/up arrow.svg';
+    } else {
+        summaryImgEl.src = 'img/down arrow.svg';
+    }
+});
+
+filterItems.forEach(item => {
+    item.addEventListener('mouseover', (e) =>{
+        setHoverStyle(e.target);
+    });
+    item.addEventListener('mouseout', (e) =>{
+        resetNormalStyle(e.target);
+    });
+    item.addEventListener('click', (e) =>{
+        summaryEl.textContent = item.textContent;
+        setClickStyle(e.target);
+    });
+});
+
+const buttonEl = document.querySelector('.ui__button-box_button');
+
+buttonEl.addEventListener('mouseover', (e) =>{
+    setHoverStyle(e.target);
+});
+buttonEl.addEventListener('mouseout', (e) =>{
+    resetNormalStyle(e.target);
+});
+buttonEl.addEventListener('click', (e) =>{
+    setClickStyle(e.target);
 });
