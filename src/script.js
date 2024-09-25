@@ -19,28 +19,28 @@ menuCloseEl.addEventListener('click', (e) => {
 
 // change style functions
 function setHoverStyle(element) {
-    element.classList.add('hover');
     element.classList.remove('active');
     element.classList.remove('focus');
+    element.classList.add('hover');
 }
 
 function resetNormalStyle(element) {
-    element.style.removeProperty('background');
     element.classList.remove('hover');
     element.classList.remove('active');
     element.classList.remove('focus');
+    element.style.removeProperty('background');
 }
 
 function setClickStyle(element) {
-    element.classList.add('active');
     element.classList.remove('hover');
     element.classList.remove('focus');
+    element.classList.add('active');
 }
 
 function setFocusStyle(element) {
-    element.classList.add('focus');
     element.classList.remove('hover');
     element.classList.remove('active');
+    element.classList.add('focus');
 }
 
 // email validity check function
@@ -102,10 +102,10 @@ observer.observe(document.body, {
     subtree: true
 });
 
-const filterEl = document.querySelector('.filter');
-const filterItems = document.querySelectorAll('.filter__items_item');
-const summaryEl = document.querySelector('.filter__summary_name');
-const summaryImgEl = document.querySelector('.filter__summary_img');
+const filterEl = document.querySelector('.ui__dropdown_filter');
+const filterItems = document.querySelectorAll('.ui__dropdown_item');
+const summaryEl = document.querySelector('.ui__dropdown_summary-name');
+const summaryImgEl = document.querySelector('.ui__dropdown_summary-img');
 
 filterEl.addEventListener('toggle', (e) => {
     if (filterEl.open) {
@@ -160,6 +160,7 @@ inputsEl.forEach(input => {
     });
 });
 
+// 
 const accordionItems = document.querySelectorAll('.ui__accordion_item');
 
 accordionItems.forEach((item) => {

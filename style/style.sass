@@ -1,5 +1,12 @@
 @import "vars", "mixins"
 
+@keyframes slide 
+  0% 
+    opacity: 0
+  100% 
+    opacity: 1
+    
+
 *
     margin: 0
     padding: 0
@@ -258,6 +265,40 @@ li
             margin-top: 24px
         &_desc
             @mixin basic-text
+        &_filter-box
+            position: relative
+        &_filter
+            width: 280px
+            z-index: 1
+            position: absolute
+            &[open]  
+                animation: slide .3s ease-in-out
+        &_summary
+            display: flex
+            justify-content: space-between
+            align-items: baseline
+            gap: 16px
+            border-bottom: 2px solid rgb(174, 173, 174)
+            cursor: pointer
+        &_summary-name
+            @mixin basic-text
+            width: 255px
+        &_items
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08)
+            background: rgb(255, 255, 255)
+            display: flex
+            flex-direction: column
+        &_item
+            @mixin basic-text
+            list-style-type: none
+            padding: 16px 24px
+            transition: background-color 0.3s ease, color 0.3s ease
+            &.hover
+                background-color: rgb(62, 41, 227)
+                color: white
+            &.active
+                color: rgb(61, 40, 225)
+                background-color: white
     &__button-box
         &_heading
             @include h3-text
@@ -278,10 +319,10 @@ li
             color: rgb(255, 255, 255)
             transition: background 0.3s ease
             cursor: pointer
-            &:hover
-                background: linear-gradient(225.00deg, rgb(221, 128, 237) 37.476%,rgb(61, 40, 227) 137.476%)
-            &:active
-                background: linear-gradient(206.57deg, rgb(221, 128, 237) 33.305%,rgb(61, 40, 227) 94.435%)
+            &.hover
+                background: linear-gradient(225.00deg, rgb(221, 128, 237) 37.476%, rgb(61, 40, 227) 137.476%)
+            &.active
+                background: linear-gradient(206.57deg, rgb(221, 128, 237) 33.305%, rgb(61, 40, 227) 94.435%)
     &__checkbox-radio
         padding-top: 30px
         display: grid
@@ -291,7 +332,7 @@ li
             @include h3-text
             grid-column: span 2
         &_items
-            width: 344px
+            max-width: 344px
             display: flex
             flex-direction: column
             gap: $gapStandart
@@ -404,35 +445,8 @@ li
             max-width: 592px
             padding-top: 9px
             padding-bottom: 30px
+  
 
-.filter
-    width: 280px
-    &__summary
-        display: flex
-        justify-content: space-between
-        align-items: baseline
-        gap: 16px
-        border-bottom: 2px solid rgb(174, 173, 174)
-        cursor: pointer
-        &_name
-            @mixin basic-text
-            width: 255px
-    &__items
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08)
-        background: rgb(255, 255, 255)
-        display: flex
-        flex-direction: column
-        &_item
-            @mixin basic-text
-            list-style-type: none
-            padding: 16px 24px
-            transition: background-color 0.3s ease, color 0.3s ease
-            &:hover
-                background-color: rgb(62, 41, 227)
-                color: white
-            &:active
-                color: rgb(61, 40, 225)
-                background-color: white
 
 .footer
     grid-column: 1 / 13
@@ -442,7 +456,7 @@ li
     justify-content: center
     &__desc
         @mixin support-text
-            text-align: center
+        text-align: center
 
 @media (min-width: 736px) and ( max-width: 1199px)
     .container
@@ -476,11 +490,7 @@ li
         &__nav
             padding-left: 16px
 
-    .ui__checkbox-radio_heading
-        grid-column: span 1
-
     .ui__checkbox-radio
-        grid-template-columns: repeat(1, 1fr)
         gap: 32px
     .footer
         grid-column: 1 / 9
