@@ -19,7 +19,7 @@
                     Евгеньевна</p>
             </div>
             <div class="header__right">
-                <label for="menu"><img src="img/ico_menu.svg" alt="menu"></label>
+                <label for="menu" class="header__right_label"><img src="img/ico_menu.svg" alt="menu"></label>
                 <input type="checkbox" id="menu" checked="false">
             </div>
         </header>
@@ -55,24 +55,27 @@
             </div>
             <a href="#" class="menu-box__close"><img src="img/ico_menu_close.svg" alt="close menu"></a>
         </div>
-        <div class="content-box content-width">
-            <nav>
+        <div class="content-box">
+            <nav class="nav">
                 <ul class="content-box__nav">
-                    <li class="content-box__nav_list">Напутственное слово</li>
-                    <li class="content-box__nav_list">Сетка</li>
-                    <li class="content-box__nav_list">Типографика</li>
-                    <li class="content-box__nav_list">UI</li>
+                    <li class="content-box__nav_list"><a href="#content__info_desc" class="content-box__nav_link">Напутственное слово</a></li>
+                    <li class="content-box__nav_list"><a href="#grid" class="content-box__nav_link">Сетка</a></li>
+                    <li class="content-box__nav_list"><a href="#typography" class="content-box__nav_link">Типографика</a></li>
+                    <li class="content-box__nav_list"><a href="#ui" class="content-box__nav_link">UI</a></li>
                 </ul>
             </nav>
             <div class="content">
                 <section class="content__info">
                     <h1 class="content__info_title">Тестовое задание</h1>
                     <h3 class="content__info_heading">Уровень: junior</h3>
-                    <p class="content__info_desc">Привет! Твоё тестовое задание — грамотно заверстать эту прекрасную страничку. В шапке страницы укажи своё ФИО, так всем будет удобнее. В менюхе под иконкой бургером мы хотели бы также видеть твои данные.<br>Ну что, поехали?</p>
+                    <p class="content__info_desc">Привет! Твоё тестовое задание — грамотно заверстать эту прекрасную
+                        страничку. В шапке страницы укажи своё ФИО, так всем будет удобнее. В менюхе под иконкой
+                        бургером мы хотели бы также видеть твои данные.<br>Ну что, поехали?</p>
                 </section>
                 <section class="grid">
                     <h2 class="grid__title">Сетка</h2>
-                    <p class="grid__desc">Задание предполагает адаптивную вёрстку. Используется 3 состояния в зависимости от устройства. Сетка «резиновая» — переменной ширины.</p>
+                    <p class="grid__desc">Задание предполагает адаптивную вёрстку. Используется 3 состояния
+                        в зависимости от устройства. Сетка «резиновая» — переменной ширины.</p>
                     <article class="grid__item">
                         <h3 class="grid__item_heading">Десктоп (1200+)</h3>
                         <div class="grid__params">
@@ -89,7 +92,7 @@
                                 <p class="grid__params_param2">32</p>
                             </div>
                         </div>
-                        <img src="img/pic_desctop.jpeg" alt="desktop">
+                        <img class="grid__item_img" src="img/pic_desctop.jpeg" alt="desktop">
                     </article>
                     <article class="grid__item">
                         <article class="grid__item">
@@ -108,7 +111,7 @@
                                     <p class="grid__params_param2">32</p>
                                 </div>
                             </div>
-                            <img src="img/pic_desctop.jpeg" alt="desktop">
+                            <img class="grid__item_img" src="img/pic_desctop.jpeg" alt="desktop">
                         </article>
                     </article>
                     <article class="grid__item">
@@ -127,12 +130,13 @@
                                 <p class="grid__params_param2">24</p>
                             </div>
                         </div>
-                        <img src="img/pic_desctop.jpeg" alt="desktop">
+                        <img class="grid__item_img" src="img/pic_desctop.jpeg" alt="desktop">
                     </article>
                 </section>
                 <section class="typography">
                     <h2 class="typography__title">Типографика</h2>
-                    <p class="typography__desc">Используется шрифт Graphik. На телефонах стили типографики переопределяются.</p>
+                    <p class="typography__desc">Используется шрифт Graphik. На телефонах стили типографики
+                        переопределяются.</p>
                     <p class="typography__desc">Извините, к сожалению я не умею реализовывать такую структуру (((</p>
                 </section>
                 <section class="ui">
@@ -145,7 +149,9 @@
                         <h3 class="ui__dropdown_heading">Выпадающий список</h3>
                         <p class="ui__dropdown_desc">Компонент состоит из текстового поля и выпадающей подсказки</p>
                         <details class="filter">
-                            <summary class="filter__summary"><span class="filter__summary_name">Выберите что-нибудь</span><img class="filter__summary_img" src="img/down arrow.svg" alt="arrow"></summary>
+                            <summary class="filter__summary"><span class="filter__summary_name">Выберите
+                                    что-нибудь</span><img class="filter__summary_img" src="img/down arrow.svg"
+                                    alt="arrow"></summary>
                             <ul class="filter__items">
                                 <li class="filter__items_item">Первый стул</li>
                                 <li class="filter__items_item">Второй стул</li>
@@ -162,26 +168,63 @@
                     </section>
                     <section class="ui__checkbox-radio">
                         <h3 class="ui__checkbox-radio_heading">Чекбокс, радиобаттон</h3>
-                        <div class="ui__checkbox-radio_checkbox">
-                            <label for="check1"></label>
-                            <input type="checkbox" id="check1" class="checkbox">
-                            <label for="check2"></label>
-                            <input type="checkbox" id="check2" class="checkbox">
-                            <label for="check3"></label>
-                            <input type="checkbox" id="check3" class="checkbox">
-                        </div>
-                        <div class="ui__checkbox-radio_radio">
-                            <label for="check4"></label>
-                            <input type="radio" id="check4" class="radio">
-                            <label for="check5"></label>
-                            <input type="radio" id="check5" class="radio">
-                            <label for="check6"></label>
-                            <input type="radio" id="check6" class="radio">
-                        </div>
+                        <article class="ui__checkbox-radio_items">
+                            <div class="ui__checkbox-radio_item">
+                                <input type="checkbox" id="check1" class="ui__checkbox-radio_input-check" name="song1">
+                                <label for="check1" class="ui__checkbox-radio_label">Выбери меня</label>
+                            </div>
+                            <div class="ui__checkbox-radio_item">
+                                <input type="checkbox" id="check2" class="ui__checkbox-radio_input-check" name="song1">
+                                <label for="check2" class="ui__checkbox-radio_label">Выбери меня</label>
+                            </div>
+                            <div class="ui__checkbox-radio_item">
+                                <input type="checkbox" id="check3" class="ui__checkbox-radio_input-check" name="song1">
+                                <label for="check3" class="ui__checkbox-radio_label">Птица счастья завтрашнего
+                                    дня</label>
+                            </div>
+                        </article>
+                        <article class="ui__checkbox-radio_items">
+                            <div class="ui__checkbox-radio_item">
+                                <input type="radio" id="check4" class="ui__checkbox-radio_input-radio" name="song2">
+                                <label for="check4" class="ui__checkbox-radio_label">Пластмассовый мир победил</label>
+                            </div>
+                            <div class="ui__checkbox-radio_item">
+                                <input type="radio" id="check5" class="ui__checkbox-radio_input-radio" name="song2">
+                                <label for="check5" class="ui__checkbox-radio_label">Макет оказался сильней</label>
+                            </div>
+                            <div class="ui__checkbox-radio_item">
+                                <input type="radio" id="check6" class="ui__checkbox-radio_input-radio" name="song2">
+                                <label for="check6" class="ui__checkbox-radio_label">Последний кораблик остыл</label>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="ui__accordion">
+                        <h3 class="ui__accordion_heading">Аккордеон</h3>
+                        <details class="ui__accordion_item">
+                            <summary class="ui__accordion_summary"><span class="ui__accordion_item-name">Аккордеон</span><img class="ui__accordion_img" src="img/down arrow.svg" alt="arrow"></summary>
+                            <p class="ui__accordion_item-desc">Гоpдость полными вагонами золотыми погонами<br>С юга дyют
+                                молодые ветра…<br>Pазpывая в клочья облака не забыли шлют из далека<br>С дома мама И не
+                                последняя любовь<br>А по небy бегyт видишь чьи-то следы<br>Это может быть ты это может быть я<br>Это может наш дрyг<br>Это может нам поют свои</p>
+                        </details>
+                        <details class="ui__accordion_item">
+                            <summary class="ui__accordion_summary"><span class="ui__accordion_item-name">Аккордеон</span><img class="ui__accordion_img" src="img/down arrow.svg" alt="arrow"></summary>
+                            <p class="ui__accordion_item-desc">Гоpдость полными вагонами золотыми погонами<br>С юга дyют
+                                молодые ветра…<br>Pазpывая в клочья облака не забыли шлют из далека<br>С дома мама И не
+                                последняя любовь<br>А по небy бегyт видишь чьи-то следы<br>Это может быть ты это может быть я<br>Это может наш дрyг<br>Это может нам поют свои</p>
+                        </details>
+                        <details open class="ui__accordion_item">
+                            <summary class="ui__accordion_summary"><span class="ui__accordion_item-name">Аккордеон</span><img class="ui__accordion_img" src="img/up arrow.svg" alt="arrow"></summary>
+                            <p class="ui__accordion_item-desc">Гоpдость полными вагонами золотыми погонами<br>С юга дyют
+                                молодые ветра…<br>Pазpывая в клочья облака не забыли шлют из далека<br>С дома мама И не
+                                последняя любовь<br>А по небy бегyт видишь чьи-то следы<br>Это может быть ты это может быть я<br>Это может наш дрyг<br>Это может нам поют свои</p>
+                        </details>
                     </section>
                 </section>
             </div>
         </div>
+        <footer class="footer">
+            <p class="footer__desc">Победа! 😜</p>
+        </footer>
     </div>
     <script src="src/script.js"></script>
 </body>

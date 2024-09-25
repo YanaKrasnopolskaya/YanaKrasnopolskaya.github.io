@@ -1,3 +1,4 @@
+@import "vars", "mixins"
 
 *
     margin: 0
@@ -11,6 +12,9 @@ body
 a
     text-decoration: none
 
+li
+    list-style-type: none
+
 .container
     display: grid
     gap: 32px
@@ -20,36 +24,27 @@ a
     overflow: hidden
     position: relative
 
-.content-width
-    min-width: 1072px
-    max-width: 1312px
-
 .header
     grid-column: 1 / 13
     display: flex
     justify-content: space-between
     align-items: center
     padding: 32px 64px
-
     &__left
         width: 190px
         display: flex
-        gap: 24px
+        gap: $gapStandart
         align-items: center
         &_logo
             height: 56px
         &_name
-            color: rgb(125, 125, 125)
-            font-size: 0.875rem
-            font-weight: 400
-            line-height: calc(0.875rem + 8px)
-            text-align: left
+            @include support-text
         &_name-surname
+            @include support-text
             color: rgb(27, 27, 27)
-            font-size: 0.875rem
-            font-weight: 500
-            line-height: calc(0.875rem + 8px)
-            text-align: left
+    &__right
+        &_label
+            cursor: pointer
 
 #menu
     position: fixed
@@ -73,7 +68,7 @@ a
         right: 63px
 
 .menu
-    width: 760px
+    width: 56%
     background-color: rgb(255, 255, 255)
     margin-top: 8px
     margin-bottom: 8px
@@ -88,37 +83,28 @@ a
         width: 100%
         display: flex
         gap: 64px
-        padding-top: 24px
-        padding-left: 56px
+        padding: 24px 56px
         align-items: center
+        box-sizing: border-box
         &_logo
             width: 40px
             height: 40px
-
     &__info
-        width: 494px
+        width: 100%
         padding-top: 36px
         padding-bottom: 36px
-        padding-left: 160px
+        padding-left: calc(50% - 494px / 2)
+        padding-right: calc(50% - 494px / 2)
         display: flex
         flex-direction: column
-        gap: 24px
+        gap: $gapStandart
         box-sizing: border-box
-
         &_title
+            @include h2-text
             margin-top: 36px
-            color: rgb(27, 27, 27)
-            font-size: 2rem
-            font-weight: 700
-            line-height: calc(2rem + 8px)
-            text-align: left
         &_desc
-            width: 384px
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            text-align: left
+            @include basic-text
+            max-width: 384px
         &_number-phone
             margin-top: 8px
             color: rgb(27, 27, 27)
@@ -127,16 +113,16 @@ a
             line-height: calc(1.125rem + 8px)
             text-align: left
         &_link
+            @include basic-text
             margin-top: 193px
             color: rgb(62, 41, 227)
-            font-size: 1rem
             font-weight: 500
-            line-height: calc(1rem + 8px)
-            text-align: left
+
     &__footer
-        padding-left: 160px
+        padding-left: calc(50% - 494px / 2)
+        padding-right: calc(50% - 494px / 2)
         display: flex
-        gap: 24px
+        gap: $gapStandart
         &_link
             width: 48px
             height: 48px
@@ -153,19 +139,16 @@ a
         flex-direction: column
         padding-top: 168px
         padding-left: 64px
-        &_list
-            list-style-type: none
-            color: rgb(125, 125, 125)
-            font-size: 0.875rem
-            font-weight: 400
-            line-height: calc(0.875rem + 8px)
-            text-align: left
+        &_link
+            @include support-text
+            &:hover
+                color: rgb(27, 27, 27)
 
 .content
+    @include content-center-desk
     display: flex
     flex-direction: column
     gap: 80px
-    max-width: 904px
     &__info
         display: flex
         flex-direction: column
@@ -177,35 +160,21 @@ a
             line-height: calc(3rem + 8px)
             text-align: left
         &_heading
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
+            @include h3-text
             font-weight: 400
-            line-height: calc(1.5rem + 8px)
-            text-align: left
             margin-bottom: 48px
         &_desc
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            text-align: left
+            @include basic-text
             max-width: 592px
+
 .grid
     display: flex
     flex-direction: column
     gap: 16px
     &__title
-        color: rgb(27, 27, 27)
-        font-size: 2rem
-        font-weight: 700
-        line-height: calc(2rem + 8px)
-        text-align: left
+        @include h2-text
     &__desc
-        color: rgb(27, 27, 27)
-        font-size: 1rem
-        font-weight: 400
-        line-height: calc(1rem + 8px)
-        text-align: left
+        @include basic-text
         max-width: 592px
     &__item
         display: flex
@@ -213,87 +182,58 @@ a
         gap: 32px
         padding-top: 24px
         &_heading
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
-            font-weight: 500
-            line-height: calc( 1.5rem + 8px)
-            text-align: left
+            @include h3-text
+        &_img
+            width: 100%
     &__params
         display: flex
+        flex-wrap: wrap
         flex-direction: column
         gap: 8px
+        width: 100%
         &_param
-            display: flex
-            flex-direction: row
+            display: grid
+            grid-template-columns: repeat(4, 1fr)
             gap: 32px
         &_param1
-            color: rgb(125, 125, 125)
-            font-size: 0.875rem
-            font-weight: 400
-            line-height: calc(0.875rem + 8px)
-            text-align: left
-            width: 176px
+            @include support-text
         &_param2
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
+            @include h3-text
             font-weight: 400
-            line-height: calc(1.5rem + 8px)
-            text-align: left
-            width: 176px
 
 .typography
     display: flex
     flex-direction: column
-    gap: 24px
+    gap: $gapStandart
     &__title
-        color: rgb(27, 27, 27)
-        font-size: 2rem
-        font-weight: 700
-        line-height: calc(2rem + 8px)
-        text-align: left
+        @include h2-text
         margin-bottom: 24px
     &__desc
-        color: rgb(27, 27, 27)
-        font-size: 1rem
-        font-weight: 400
-        line-height: calc(1rem + 8px)
-        text-align: left
+        @include basic-text
         max-width: 592px
 
 .ui
     display: flex
     flex-direction: column
-    gap: 24px
+    gap: $gapStandart
     &__title
-        color: rgb(27, 27, 27)
-        font-size: 2rem
-        font-weight: 700
-        line-height: calc(2rem + 8px)
-        text-align: left
+        @include h2-text
         margin-bottom: 24px
-
     &__form
         display: flex
         flex-direction: column
         gap: 6px
         &_heading
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
-            font-weight: 500
-            line-height: calc(1.5rem + 8px)
-            text-align: left
+            @include h3-text
             margin-bottom: 92px
         &_input
+            @mixin basic-text
             width: 280px
             border: none
             outline: none
             border-bottom: 2px solid rgb(174, 173, 174)
             background-color: transparent
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            text-align: left
+            cursor: pointer
             &:hover
                 border-bottom: 2px solid rgb(62, 41, 227)
             &:focus
@@ -306,36 +246,21 @@ a
             line-height: calc(0.75rem + 8px)
             text-align: left
         &_error
+            @mixin support-text
             color: rgb(232, 15, 59)
-            font-size: 0.875rem
-            font-weight: 400
-            line-height: calc(0.875rem + 8px)
-            text-align: left
     &__dropdown
         display: flex
         flex-direction: column
-        gap: 24px
+        justify-content: space-between
+        gap: $gapStandart
         &_heading
+            @include h3-text
             margin-top: 24px
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
-            font-weight: 500
-            line-height: calc(1.5rem + 8px)
-            text-align: left
         &_desc
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            letter-spacing: 0px
-            text-align: left
+            @mixin basic-text
     &__button-box
         &_heading
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
-            font-weight: 500
-            line-height: calc(1.5rem + 8px)
-            text-align: left
+            @include h3-text
             margin-top: 24px
             margin-bottom: 76px
         &_buttons
@@ -343,6 +268,7 @@ a
             grid-template-columns: repeat(3, 1fr)
             gap: 76px
         &_button
+            @mixin basic-text
             width: 148px
             padding: 16px 28px
             border: none
@@ -351,51 +277,153 @@ a
             background: linear-gradient(45.00deg, rgb(221, 128, 237) 37.476%,rgb(61, 40, 227) 137.476%)
             color: rgb(255, 255, 255)
             transition: background 0.3s ease
-            font-size: 1rem
-            font-weight: 500
-            line-height: calc(1rem + 8px)
-            text-align: center
+            cursor: pointer
             &:hover
                 background: linear-gradient(225.00deg, rgb(221, 128, 237) 37.476%,rgb(61, 40, 227) 137.476%)
             &:active
                 background: linear-gradient(206.57deg, rgb(221, 128, 237) 33.305%,rgb(61, 40, 227) 94.435%)
     &__checkbox-radio
         padding-top: 30px
-        display: flex
-        flex-direction: column
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
         gap: 32px
         &_heading
-            color: rgb(27, 27, 27)
-            font-size: 1.5rem
+            @include h3-text
+            grid-column: span 2
+        &_items
+            width: 344px
+            display: flex
+            flex-direction: column
+            gap: $gapStandart
+        &_item
+            display: flex
+            gap: 32px
+        &_label
+            @mixin basic-text
+            opacity: 0.8
+            cursor: pointer
+        &_input-check
+            z-index: -1
+            opacity: 0
+            position: absolute
+        &_input-check+label
+            display: inline-flex
+            align-items: center
+            gap: 16px
+            user-select: none
+        &_input-check+label::before
+            content: ''
+            display: inline-block
+            width: 24px
+            height: 24px
+            flex-shrink: 0
+            flex-grow: 0
+            box-sizing: border-box
+            border: 2px solid rgb(174, 173, 174)
+            background-color: rgb(255, 255, 255)
+            background-repeat: no-repeat
+            background-position: center center
+        &_input-check:not(:disabled):not(:checked)+label:hover::before
+            border: 2px solid rgb(62, 41, 227)
+            background-color: rgb(255, 255, 255)
+        &_input-check:not(:disabled):checked+label::before
+            border: 2px solid rgb(62, 41, 227)
+            background-color: rgb(62, 41, 227)
+            background-image: url('../img/tick.svg')
+        &_input-check:not(:disabled):not(:checked)+label:hover
+            opacity: 1
+        &_input-check:not(:disabled):checked+label
+            opacity: 1
+        &_input-radio
+            z-index: -1
+            opacity: 0
+            position: absolute
+        &_input-radio+label
+            display: inline-flex
+            align-items: center
+            gap: 16px
+            user-select: none
+        &_input-radio+label::before
+            content: ''
+            display: inline-block
+            width: 24px
+            height: 24px
+            flex-shrink: 0
+            flex-grow: 0
+            box-sizing: border-box
+            border-radius: 50%
+            border: 2px solid rgb(174, 173, 174)
+            background-color: rgb(255, 255, 255)
+            background-repeat: no-repeat
+            background-position: center center
+        &_input-radio:not(:disabled):not(:checked)+label:hover::before
+            border: 2px solid rgb(62, 41, 227)
+            background-color: rgb(255, 255, 255)
+        &_input-radio:not(:disabled):checked+label::before
+            border: 2px solid rgb(62, 41, 227)
+            background-image: url('../img/Oval.svg')
+        &_input-radio:not(:disabled):not(:checked)+label:hover
+            opacity: 1
+        &_input-radio:not(:disabled):checked+label
+            opacity: 1
+    &__accordion
+        margin-top: 30px
+        width: 100%
+        display: flex
+        flex-direction: column
+        gap: $gapStandart
+        &_heading
+            @include h3-text
+            margin-bottom: 8px
+        &_item
+            border-bottom: 1px solid rgb(203, 203, 204)
+            max-height: 39px
+            transition: max-height .3s easy
+            &:hover
+                border-bottom: 1px solid rgb(62, 41, 227)
+        &_item[open] &_item-name
+            color: rgb(62, 41, 227)
+
+        &_item[open]
+            border-bottom: 2px solid rgb(62, 41, 227)
+            max-height: 500px
+        &_summary
+            display: flex
+            justify-content: space-between
+            align-items: baseline
+            padding-bottom: 15px
+            cursor: pointer
+        &_item-name
+            @mixin basic-text
+            color: rgb(125, 125, 125)
             font-weight: 500
-            line-height: calc(1.5rem + 8px)
-            text-align: left
+            &:hover
+                color: rgb(27, 27, 27)
+        &_item-desc
+            @mixin basic-text
+            max-width: 592px
+            padding-top: 9px
+            padding-bottom: 30px
 
 .filter
     width: 280px
     &__summary
         display: flex
+        justify-content: space-between
         align-items: baseline
         gap: 16px
         border-bottom: 2px solid rgb(174, 173, 174)
+        cursor: pointer
         &_name
+            @mixin basic-text
             width: 255px
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            text-align: left
     &__items
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08)
         background: rgb(255, 255, 255)
         display: flex
         flex-direction: column
         &_item
-            color: rgb(27, 27, 27)
-            font-size: 1rem
-            font-weight: 400
-            line-height: calc(1rem + 8px)
-            text-align: left
+            @mixin basic-text
             list-style-type: none
             padding: 16px 24px
             transition: background-color 0.3s ease, color 0.3s ease
@@ -406,28 +434,131 @@ a
                 color: rgb(61, 40, 225)
                 background-color: white
 
+.footer
+    grid-column: 1 / 13
+    margin-top: 160px
+    margin-bottom: 48px
+    display: flex
+    justify-content: center
+    &__desc
+        @mixin support-text
+            text-align: center
+
 @media (min-width: 736px) and ( max-width: 1199px)
     .container
         grid-template-columns: repeat(8, minmax(56px, 88px))
 
     .content-width
-        min-width: 672px
-        max-width: 928px
+        padding-left: calc(50% - 928px / 2)
+        padding-right: calc(50% - 928px / 2)
 
     .header
+        grid-column: 1 / 9
+        padding: 32px 16px
+
+    .menu__header
+        padding: 24px
+
+    .menu__info
+        padding-left: calc(50% - 346px / 2)
+        padding-right: calc(50% - 346px / 2)
+
+    .menu__footer
+        padding-left: calc(50% - 346px / 2)
+        padding-right: calc(50% - 346px / 2)
+
+    .content
+        @include content-center-tablet()
+
+    .content-box
+        grid-column: 1 / 9
+        gap: 40px
+        &__nav
+            padding-left: 16px
+
+    .ui__checkbox-radio_heading
+        grid-column: span 1
+
+    .ui__checkbox-radio
+        grid-template-columns: repeat(1, 1fr)
+        gap: 32px
+    .footer
         grid-column: 1 / 9
 
 @media (min-width: 320px) and ( max-width: 735px)
 
     .container
-        gap: 24px
+        gap: $gapStandart
         grid-template-columns: repeat(4, minmax(56px, 88px))
 
     .content-width
-        min-width: 296px
-        max-width: 424px
+        padding-left: calc(50% - 424px / 2)
+        padding-right: calc(50% - 424px / 2)
 
     .header
         grid-column: 1 / 5
-        &__left_name
-            display: none
+        padding: 32px 8px
+
+    .menu-box__close
+        top: 16px
+        right: 16px
+
+    .menu
+        width: 80%
+        &__header
+            padding: 8px
+        &__info
+            padding-left: calc(50% - 240px / 2)
+            padding-right: calc(50% - 240px / 2)
+            &_title
+                @include h2-text-mobile
+        &__footer
+            padding-left: calc(50% - 240px / 2)
+            padding-right: calc(50% - 240px / 2)
+
+    .content-box
+        grid-column: 1 / 5
+        flex-direction: column
+
+    .content
+        @include content-center-mobile()
+        &__info
+            &_title
+                font-size: 2rem
+                line-height: calc(2rem + 8px)
+            &_heading
+                @include h3-text-mobile
+
+    .nav
+        display: none
+
+    .grid__title
+        @include h2-text-mobile
+    .grid__item_heading
+        @include h3-text-mobile
+    .grid__params_param2
+        @include h3-text-mobile
+
+    .typography__title
+        @include h2-text-mobile
+
+    .ui__title
+        @include h2-text-mobile
+    .ui__form_heading
+        @include h3-text-mobile
+    .ui__dropdown_heading
+        @include h3-text-mobile
+    .ui__button-box_heading
+        @include h3-text-mobile
+    .ui__checkbox-radio_heading
+        @include h3-text-mobile
+        grid-column: span 1
+    .ui__checkbox-radio
+        grid-template-columns: repeat(1, 1fr)
+        gap: 32px
+    .ui__accordion_heading
+        @include h3-text-mobile
+
+    .footer
+        grid-column: 1 / 5
+        margin-top: 32px

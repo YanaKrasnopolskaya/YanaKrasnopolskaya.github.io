@@ -60,7 +60,7 @@ inputEmailEl.addEventListener('keydown', (e) => {
 
             inputEmailEl.insertAdjacentHTML('beforebegin', errorEmail);
             inputEmailEl.insertAdjacentHTML('afterend', errorMessage);
-            
+
             inputEmailEl.value = '';
             inputEmailEl.style.borderBottom = '4px solid rgb(232, 15, 59)';
             return false;
@@ -116,13 +116,13 @@ filterEl.addEventListener('toggle', (e) => {
 });
 
 filterItems.forEach(item => {
-    item.addEventListener('mouseover', (e) =>{
+    item.addEventListener('mouseover', (e) => {
         setHoverStyle(e.target);
     });
-    item.addEventListener('mouseout', (e) =>{
+    item.addEventListener('mouseout', (e) => {
         resetNormalStyle(e.target);
     });
-    item.addEventListener('click', (e) =>{
+    item.addEventListener('click', (e) => {
         summaryEl.textContent = item.textContent;
         setClickStyle(e.target);
     });
@@ -130,12 +130,70 @@ filterItems.forEach(item => {
 
 const buttonEl = document.querySelector('.ui__button-box_button');
 
-buttonEl.addEventListener('mouseover', (e) =>{
+buttonEl.addEventListener('mouseover', (e) => {
     setHoverStyle(e.target);
 });
-buttonEl.addEventListener('mouseout', (e) =>{
+buttonEl.addEventListener('mouseout', (e) => {
     resetNormalStyle(e.target);
 });
-buttonEl.addEventListener('click', (e) =>{
+buttonEl.addEventListener('click', (e) => {
     setClickStyle(e.target);
+});
+
+const inputsEl = document.querySelectorAll('.ui__checkbox-radio_input-check');
+
+inputsEl.forEach(input => {
+    input.addEventListener('change', (e) => {
+        const checkedInput = e.target;
+        if (checkedInput.checked) {
+            inputsEl.forEach(i => {
+                if (i !== checkedInput) {
+                    i.disabled = true;
+                }
+            });
+        } else
+            inputsEl.forEach(i => {
+                if (i !== checkedInput) {
+                    i.disabled = false;
+                }
+            });
+    });
+});
+
+const accordionItems = document.querySelectorAll('.ui__accordion_item');
+
+accordionItems.forEach((item) => {
+    item.addEventListener('toggle', (event) => {
+        const itemEl = event.currentTarget;
+        const itemImg = itemEl.querySelector('.ui__accordion_img');
+
+        if (itemEl.open) {
+            itemImg.src = 'img/up arrow.svg';
+            accordionItems.forEach((i) => {
+                if (i !== itemEl) {
+                    i.removeAttribute('open');
+                }
+            });
+        } else {
+            itemImg.src = 'img/down arrow.svg';
+        }
+    });
+    item.addEventListener('click', function() {
+        this.classList.toggle('open');
+    });
+});
+
+const navLinks = document.querySelectorAll('.content-box__nav_link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        link.style.color = 'rgb(62, 41, 227)';
+
+        let className = link.getAttribute('href').replace('#', '');
+        let targetElement = document.querySelector(`.${className}`);
+
+        targetElement.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
 });
